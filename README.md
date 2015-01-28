@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
 
         // Writes the translations from the spreadsheet to the locale json files
-        update-locales: {
+        "update-locales": {
             // default options
             options: {
                 spreadsheetId: "1nrl8kkJuQTNck0h7phNis6BKRYWzH4XESdykq0weMdU",
@@ -33,7 +33,7 @@ module.exports = function (grunt) {
         },
         
         // Syncs the json files to the google docs spreadsheet
-        sync-locales: {
+        "sync-locales": {
            options: {
                spreadsheetId: "1nrl8kkJuQTNck0h7phNis6BKRYWzH4XESdykq0weMdU",
                oauth: {
