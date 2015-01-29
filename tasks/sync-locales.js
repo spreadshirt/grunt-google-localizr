@@ -87,9 +87,13 @@ module.exports = function (grunt) {
                                         addData[r]["1"] = [k];
                                         addData[r][c] = [flatLocaleFile[k]];
                                     });
-
-                                    self.vars.spreadsheet.add(addData);
-                                    self.vars.spreadsheet.send(cb);
+                                    try {
+                                        self.vars.spreadsheet.add(addData);
+                                        self.vars.spreadsheet.send(cb);
+                                    } catch (e) {
+                                        grunt.log.write(JSON.stringify(addData));
+                                        throw e;
+                                    }
                                 } else {
                                     cb();
                                 }
