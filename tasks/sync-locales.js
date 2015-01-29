@@ -68,7 +68,9 @@ module.exports = function (grunt) {
                                             c = spreadsheetUtil.findLocaleColumn(locale, rows);
 
                                         if (r == null) {
-                                            var nSize = (_.size(rows) + 2) + "";
+
+                                            var nRows = _.size(rows);
+                                            var nSize = (nRows == 0 ? "2" : (nRows + 1)) + "";
                                             rows[nSize + ""] = rows[nSize] || {};
                                             rows[nSize + ""]["1"] = k;
                                             r = nSize;
@@ -85,7 +87,7 @@ module.exports = function (grunt) {
 
                                         addData[r] = addData[r] || {};
                                         addData[r]["1"] = [k];
-                                        addData[r][c] = [flatLocaleFile[k]];
+                                        addData[r][c] = [flatLocaleFile[k] || ""];
                                     });
                                     try {
                                         self.vars.spreadsheet.add(addData);
