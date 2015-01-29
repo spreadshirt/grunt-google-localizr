@@ -48,7 +48,10 @@ module.exports = function (grunt) {
                         spreadsheetUtil.fetchTranslations(self.vars.spreadsheet, locale, function (err, data) {
                             if (!err) {
                                 var p = path.join(options.dest, locale + ".json");
-                                var original = flat.flatten(JSON.parse(grunt.file.read(p)));
+                                var original = {};
+                                if (fs.existsSync(p)) {
+                                    original = flat.flatten(JSON.parse(grunt.file.read(p)));
+                                }
                                 data = _.extend(original, data);
                                 grunt.file.write(p, JSON.stringify(flat.unflatten(data, { object: true }), null, 4));
                                 grunt.log.writeln('Written to ' + p);
