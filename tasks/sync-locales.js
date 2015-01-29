@@ -32,7 +32,7 @@ module.exports = function (grunt) {
                 Spreadsheet.load({
                     debug: true,
                     spreadsheetId: options.spreadsheetId,
-                    worksheetName: options.project,
+                    worksheetName: options.worksheetName || "master",
                     oauth: options.oauth
                 }, cb);
             })
