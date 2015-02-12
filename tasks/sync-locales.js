@@ -72,15 +72,22 @@ module.exports = function (grunt) {
 
                                         if (r == null) {
 
-                                            var nRows = _.size(rows);
-                                            var nSize = (nRows == 0 ? "2" : (nRows + 1)) + "";
-                                            rows[nSize + ""] = rows[nSize] || {};
-                                            rows[nSize + ""]["1"] = k;
+                                            var nRows = _.keys(rows);
+                                            var nSize = "2";
+                                            if (nRows.length > 0) {
+                                                nSize = (parseInt(nRows[nRows.length - 1]) + 1) + "";
+                                            }
+                                            rows[nSize] = rows[nSize] || {};
+                                            rows[nSize]["1"] = k;
                                             r = nSize;
                                         }
 
                                         if (c == null) {
-                                            var cSize = ((_.size(rows["1"])) + 2) + "";
+                                            var cs = _.keys(rows["1"]);
+                                            var cSize = "2";
+                                            if (cs.length > 0) {
+                                                cSize = (parseInt(cs[cs.length - 1]) + 1) + "";
+                                            }
                                             rows["1"] = rows["1"] || {};
                                             rows["1"][cSize] = locale;
                                             addData["1"] = addData["1"] || {};
