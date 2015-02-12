@@ -9,9 +9,12 @@ module.exports = function (grunt) {
         spreadsheetUtil = require('../lib/spreadsheet-util');
 
 
-    grunt.registerTask('sync-locales', 'syncs translations to google docs', function () {
+    grunt.registerTask('sync-locales', 'syncs translations to google docs', function (worksheetName) {
         var done = this.async(),
             options = this.options();
+
+        worksheetName = worksheetName || "master";
+
 
         flow()
             .seq("localeFiles", function () {
@@ -32,7 +35,7 @@ module.exports = function (grunt) {
                 Spreadsheet.load({
                     debug: true,
                     spreadsheetId: options.spreadsheetId,
-                    worksheetName: options.worksheetName || "master",
+                    worksheetName: worksheetName || "master",
                     oauth: options.oauth
                 }, cb);
             })
