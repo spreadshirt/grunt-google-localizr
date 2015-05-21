@@ -97,7 +97,11 @@ module.exports = function (grunt) {
 
                                         addData[r] = addData[r] || {};
                                         addData[r]["1"] = [k];
-                                        addData[r][c] = [flatLocaleFile[k] || ""];
+                                        var value = flatLocaleFile[k];
+                                        if (value && ["+", "="].indexOf(value.charAt(0)) > -1) {
+                                            value = "'" + value;
+                                        }
+                                        addData[r][c] = [value || ""];
                                     });
                                     try {
                                         self.vars.spreadsheet.add(addData);
