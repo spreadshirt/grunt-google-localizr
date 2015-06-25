@@ -65,7 +65,7 @@ module.exports = function (grunt) {
                                         dataKeys = _.keys(data),
                                         addData = {};
 
-                                    var diffKeys = _.merge(localeFileKeys, dataKeys);
+                                    var diffKeys = _.union(localeFileKeys, dataKeys);
                                     diffKeys.forEach(function (k) {
                                         var r = spreadsheetUtil.findRowForKey(k, rows),
                                             c = spreadsheetUtil.findLocaleColumn(locale, rows);
