@@ -20,7 +20,7 @@
     "dependencies": {
         "flow.js": "~0.2.6",
         "flat": "~1.3.0",
-        "edit-google-spreadsheet": "git+ssh://git@github.com:krebbl/node-edit-google-spreadsheet.git",
+        "edit-google-spreadsheet": "git+https://github.com/krebbl/node-edit-google-spreadsheet.git",
         "lodash": "~2.4.1"
     },
     "author": "Marcus Krejpowicz",
