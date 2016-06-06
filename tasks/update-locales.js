@@ -8,7 +8,7 @@ module.exports = function (grunt) {
         _ = require("lodash"),
         spreadsheetUtil = require('../lib/spreadsheet-util');
 
-    grunt.registerTask('update-locales', 'updates translations from google docs', function (worksheetName) {
+    grunt.registerMultiTask('update-locales', 'updates translations from google docs', function (worksheetName) {
 
         worksheetName = worksheetName || "master";
 

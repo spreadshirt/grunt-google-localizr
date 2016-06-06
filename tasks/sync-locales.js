@@ -9,7 +9,7 @@ module.exports = function (grunt) {
         spreadsheetUtil = require('../lib/spreadsheet-util');
 
 
-    grunt.registerTask('sync-locales', 'syncs translations to google docs', function (worksheetName) {
+    grunt.registerMultiTask('sync-locales', 'syncs translations to google docs', function (worksheetName) {
         var done = this.async(),
             options = this.options();
 
