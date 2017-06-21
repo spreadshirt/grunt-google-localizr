@@ -15,6 +15,7 @@ module.exports = function (grunt) {
 
         worksheetName = worksheetName || "master";
 
+        grunt.task.requires('update-locales');
 
         flow()
             .seq("localeFiles", function () {
