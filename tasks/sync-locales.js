@@ -136,5 +136,6 @@ module.exports = function (grunt) {
 
     });
 
+    grunt.registerTask('push-locales', ['update-locales', 'sync-locales']);
 
 };
